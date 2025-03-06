@@ -13,12 +13,12 @@
 #include "pulse.h"
 #include "GUI.h"
 
-void boostClk(void){
-	CLKPR = 0x80;
-	CLKPR = 0x00;
-}
 
 void initPinsNsuch(void){
+	// Boost clock
+	CLKPR = 0x80;
+	CLKPR = 0x00;
+	
 	// PortB (DOWN,UP,CENTER) Enabled
 	PORTB = (1<<PB7) | (1<<PB6) | (1<<PB4);
 	
@@ -51,9 +51,8 @@ void initPinsNsuch(void){
 
 int main(void)
 {
-	 /* Replace with your application code */
-	 boostClk();
-	 initPinsNsuch();
+	/* Replace with your application code */
+	initPinsNsuch();
 	 
 	 
 	Pulse pulse = initPulse();
